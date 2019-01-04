@@ -1,0 +1,175 @@
+* {
+  font-family: "Microsoft JhengHei", serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fc5577;
+  color: white;
+}
+
+.monsterTitle h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.monsterTitle h3, .monsterTitle h5 {
+  opacity: 0.5;
+}
+
+.monsterPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.monster {
+  width: 150px;
+  height: 150px;
+  border-radius: 25%;
+  position: relative;
+  margin: 20px;
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+.monster .eye {
+  width: 40%;
+  height: 40%;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 10%;
+  background-color: #fff;
+}
+.monster .eye .eyeBall {
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  background-color: #163aaf;
+}
+.monster .mouth {
+  width: 30%;
+  height: 12px;
+  border-radius: 12px;
+  margin: 0 auto;
+  margin-top: 20%;
+  background-color: #fff;
+}
+.monster:before, .monster:after {
+  content: "";
+  display: block;
+  width: 20%;
+  height: 10px;
+  background-color: #fff;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  border-radius: 10px;
+}
+.monster:before {
+  -webkit-transform: translate(-85%) rotate(45deg);
+          transform: translate(-85%) rotate(45deg);
+}
+.monster:after {
+  -webkit-transform: translate(-40%) rotate(-45deg);
+          transform: translate(-40%) rotate(-45deg);
+}
+
+.blue {
+  background-color: #163aaf;
+}
+.blue .eye, .blue .mouth {
+  background-color: #fc5577;
+}
+
+@-webkit-keyframes jump {
+  50% {
+    top: 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    top: -130px;
+    box-shadow: 0px 130px 100px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@keyframes jump {
+  50% {
+    top: 0;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  100% {
+    top: -130px;
+    box-shadow: 0px 130px 100px rgba(0, 0, 0, 0.2);
+  }
+}
+@-webkit-keyframes eyeMove {
+  0% {
+    margin-left: -50%;
+  }
+  100% {
+    margin-left: 50%;
+  }
+}
+@keyframes eyeMove {
+  0% {
+    margin-left: -50%;
+  }
+  100% {
+    margin-left: 50%;
+  }
+}
+.monster {
+  -webkit-animation: jump 1.5s infinite alternate;
+          animation: jump 1.5s infinite alternate;
+}
+.monster .eyeBall {
+  -webkit-animation: eyeMove 1s infinite alternate;
+          animation: eyeMove 1s infinite alternate;
+}
+
+.loadingPage {
+  position: fixed;
+  flex-direction: column;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #163aaf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s 0.3s;
+}
+.loadingPage .monster {
+  background-color: #fc5577;
+  transition: 0.5s;
+}
+.loadingPage .loading {
+  width: 200px;
+  height: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-top: 50px;
+}
+.loadingPage .loading .bar {
+  width: 0%;
+  height: 100%;
+  background-color: #fc5577;
+}
+
+.changeScene {
+  opacity: 0;
+}
+.changeScene .monster {
+  -webkit-transform: scale(0.01) rotate(360deg);
+          transform: scale(0.01) rotate(360deg);
+}
